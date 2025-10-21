@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VAMPIRE BITE | UNLEASH THE NIGHT</title>
+    <!-- Загрузка Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Установка шрифта Inter для всего документа */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000; /* Черный фон для всего сайта */
+        }
+        /* Пользовательский стиль для заголовка с эффектом свечения */
+        .glow-text {
+            /* Градиентный и теневой эффект для имитации свечения */
+            color: #E53E3E; /* Красный цвет */
+            text-shadow: 0 0 5px rgba(255, 0, 0, 0.5), 0 0 10px rgba(255, 0, 0, 0.3);
+            line-height: 1.1;
+        }
+        /* Стилизация кнопки */
+        .shop-btn {
+            border: 1px solid #fff;
+            padding: 10px 30px;
+            font-size: 14px;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+        }
+        .shop-btn:hover {
+            background-color: #E53E3E;
+            border-color: #E53E3E;
+            color: #fff;
+        }
+        /* Стили для логотипа в нижнем правом углу */
+        .brand-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #1A202C; /* Темно-серый фон */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 5px rgba(255, 0, 0, 0.4);
+        }
+        /* Убедимся, что изображения в карточках сохраняют пропорции */
+        .aspect-3-2 {
+             aspect-ratio: 2 / 3;
+        }
+    </style>
+</head>
+<body class="bg-black text-white min-h-screen flex flex-col">
+
+    <!-- Навигационная панель (Фиксированная сверху) -->
+    <header class="sticky top-0 z-10 bg-neutral-900 border-b border-neutral-800">
+        <div class="container mx-auto flex justify-between items-center px-6 py-4">
+            <div class="text-xl font-bold tracking-widest">VAMPIRE BITE</div>
+            <nav class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="#home" class="hover:text-red-400 transition duration-300">HOME</a>
+                <a href="#shop" class="hover:text-red-400 transition duration-300">SHOP</a>
+                <a href="#about" class="hover:text-red-400 transition duration-300">ABOUT</a>
+                <a href="#contact" class="hover:text-red-400 transition duration-300">CONTACT</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        
+        <!-- 1. Основной Hero-раздел (Первый экран) -->
+        <section id="home" class="bg-neutral-900 min-h-[90vh] flex flex-col justify-center items-center py-16 md:py-0">
+            <div class="container mx-auto flex flex-col md:flex-row items-center md:items-stretch px-6 lg:px-12">
+                
+                <!-- Левая колонка: Изображение продукта (back.jpg) -->
+                <div class="md:w-1/2 flex justify-center items-center p-4">
+                    <div class="max-w-xs md:max-w-sm w-full rounded-lg overflow-hidden">
+                         <img 
+                            src="img/back.jpg" 
+                            alt="Модель в черном худи с принтом вампира на спине"
+                            class="w-full h-auto object-cover"
+                         >
+                    </div>
+                </div>
+
+                <!-- Правая колонка: Заголовок и CTA -->
+                <div class="md:w-1/2 flex flex-col justify-center items-start space-y-6 mt-10 md:mt-0 md:pl-12">
+                    
+                    <!-- Основной заголовок с эффектом свечения -->
+                    <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold uppercase glow-text">
+                        UNLEASH<br>THE NIGHT
+                    </h1>
+
+                    <!-- Подзаголовок / Описание -->
+                    <p class="text-xs text-gray-400 font-light tracking-widest">
+                        ABSTRACT AGRESSION. GLOWING OBESSSION.
+                    </p>
+
+                    <!-- Кнопка призыва к действию -->
+                    <a href="#shop" class="shop-btn text-white uppercase font-semibold mt-6 inline-block">
+                        SHOP NOW
+                    </a>
+
+                    <!-- Иконка бренда и социальные сети -->
+                    <div class="flex items-center space-x-4 pt-10 text-xs text-gray-500 tracking-wider">
+                        
+                        <!-- Логотип-иконка (logo.png) -->
+                        <div class="brand-icon p-2">
+                            <img 
+                                src="img/logo.png" 
+                                alt="Логотип VAMPIRE BITE" 
+                                class="w-8 h-8 object-contain"
+                            >
+                        </div>
+                        
+                        <!-- Ссылки на социальные сети -->
+                        <div class="flex space-x-4">
+                            <a href="#" class="hover:text-red-400 transition duration-300">FACEBOOK</a>
+                            <a href="#" class="hover:text-red-400 transition duration-300">TWITTER</a>
+                            <a href="#" class="hover:text-red-400 transition duration-300">INSTAGRAM</a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 2. Секция новых поступлений/товаров (для прокрутки) -->
+        <section id="shop" class="container mx-auto px-6 py-16 md:py-24">
+            <h2 class="text-3xl md:text-4xl font-bold uppercase mb-12 text-center text-red-500 tracking-wider">
+                New Blood. New Drop.
+            </h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+                
+                <!-- Карточка товара 1 (front.jpg) -->
+                <a href="#" class="group block bg-neutral-800 rounded-lg overflow-hidden transition duration-300 hover:shadow-red-600/50 hover:shadow-xl">
+                    <div class="aspect-3-2 overflow-hidden">
+                        <img src="img/front.jpg" alt="Черное худи с логотипом спереди" class="w-full h-full object-cover group-hover:opacity-75 transition duration-300">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="text-sm font-semibold uppercase tracking-wider text-gray-200">Eclipse Hoodie (Front)</h3>
+                        <p class="mt-1 text-red-400 font-bold">$99.00</p>
+                    </div>
+                </a>
+
+                <!-- Карточка товара 2 (back.jpg) -->
+                <a href="#" class="group block bg-neutral-800 rounded-lg overflow-hidden transition duration-300 hover:shadow-red-600/50 hover:shadow-xl">
+                    <div class="aspect-3-2 overflow-hidden">
+                        <img src="img/back.jpg" alt="Черное худи с принтом сзади" class="w-full h-full object-cover group-hover:opacity-75 transition duration-300">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="text-sm font-semibold uppercase tracking-wider text-gray-200">Shadow Hoodie (Back)</h3>
+                        <p class="mt-1 text-red-400 font-bold">$99.00</p>
+                    </div>
+                </a>
+
+                <!-- Карточка товара 3 (Placeholder) -->
+                <a href="#" class="group block bg-neutral-800 rounded-lg overflow-hidden transition duration-300 hover:shadow-red-600/50 hover:shadow-xl">
+                    <div class="aspect-3-2 overflow-hidden">
+                        <img src="https://placehold.co/600x900/1e1e1e/f7f7f7?text=CARGO+PANTS" alt="Черные карго-штаны" class="w-full h-full object-cover group-hover:opacity-75 transition duration-300">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="text-sm font-semibold uppercase tracking-wider text-gray-200">Blood Cargos</h3>
+                        <p class="mt-1 text-red-400 font-bold">$120.00</p>
+                    </div>
+                </a>
+
+                <!-- Карточка товара 4 (Placeholder) -->
+                <a href="#" class="group block bg-neutral-800 rounded-lg overflow-hidden transition duration-300 hover:shadow-red-600/50 hover:shadow-xl">
+                    <div class="aspect-3-2 overflow-hidden">
+                        <img src="https://placehold.co/600x900/1e1e1e/f7f7f7?text=T-SHIRT" alt="Футболка с принтом" class="w-full h-full object-cover group-hover:opacity-75 transition duration-300">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="text-sm font-semibold uppercase tracking-wider text-gray-200">Nightfall Tee</h3>
+                        <p class="mt-1 text-red-400 font-bold">$49.00</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- 3. Секция "О нас" (для прокрутки) -->
+        <section id="about" class="bg-neutral-950 px-6 py-16 md:py-24">
+            <div class="container mx-auto max-w-4xl text-center">
+                <h2 class="text-3xl font-bold uppercase mb-6 text-gray-100">Our Coven</h2>
+                <p class="text-gray-400 text-lg">
+                    VAMPIRE BITE is not just a brand, it's a declaration. We merge abstract aggression with glowing obsession to create wearable art that defines the streetwear underground. Every thread, every drop of blood-red detail, is meticulously crafted for those who truly UNLEASH THE NIGHT. Join the obsession.
+                </p>
+                <a href="#" class="text-red-500 hover:text-red-400 mt-4 inline-block font-medium tracking-wider text-sm uppercase">
+                    Read More About Our Story &rarr;
+                </a>
+            </div>
+        </section>
+        
+    </main>
+
+    <!-- Футер -->
+    <footer id="contact" class="bg-neutral-900 border-t border-neutral-800 px-6 py-6 text-xs text-gray-600 text-center">
+        <p>&copy; 2024 VAMPIRE BITE. All rights reserved. | Created for those who thrive in the dark.</p>
+    </footer>
+
+</body>
+</html>
