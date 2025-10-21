@@ -66,16 +66,26 @@
     <header class="sticky top-0 z-10 bg-neutral-900 border-b border-neutral-800">
         <div class="container mx-auto flex justify-between items-center px-4 md:px-6 py-3 md:py-4">
             <div class="text-lg md:text-xl font-bold tracking-widest">VAMPIRE BITE</div>
-            <!-- Навигация скрыта на мобильных для экономии места -->
+            
+            <!-- Desktop Navigation -->
             <nav class="hidden md:flex space-x-8 text-sm font-medium">
                 <a href="#home" class="hover:text-red-400 transition duration-300">HOME</a>
                 <a href="#shop" class="hover:text-red-400 transition duration-300">SHOP</a>
                 <a href="#about" class="hover:text-red-400 transition duration-300">ABOUT</a>
                 <a href="#contact" class="hover:text-red-400 transition duration-300">CONTACT</a>
             </nav>
-            <!-- Добавим иконку меню-гамбургера для мобильных (нефункциональную, но для макета) -->
-             <div class="md:hidden text-white text-xl">☰</div>
+            
+            <!-- Mobile Menu Button (Гамбургер-иконка) -->
+            <button id="menu-button" class="md:hidden text-white text-xl focus:outline-none">☰</button>
         </div>
+
+        <!-- Mobile Menu Content (Скрыт по умолчанию) -->
+        <nav id="mobile-menu" class="hidden md:hidden bg-neutral-900 pb-2 border-t border-neutral-800">
+             <a href="#home" class="block py-2 px-6 text-sm hover:bg-neutral-800">HOME</a>
+             <a href="#shop" class="block py-2 px-6 text-sm hover:bg-neutral-800">SHOP</a>
+             <a href="#about" class="block py-2 px-6 text-sm hover:bg-neutral-800">ABOUT</a>
+             <a href="#contact" class="block py-2 px-6 text-sm hover:bg-neutral-800">CONTACT</a>
+        </nav>
     </header>
 
     <main class="flex-grow">
@@ -212,6 +222,37 @@
     <footer id="contact" class="bg-neutral-900 border-t border-neutral-800 px-4 md:px-6 py-4 md:py-6 text-xs text-gray-600 text-center">
         <p>&copy; 2024 VAMPIRE BITE. All rights reserved. | Created for those who thrive in the dark.</p>
     </footer>
+    
+    <!-- JavaScript для работы мобильного меню -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuButton = document.getElementById('menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+
+            // Функция для переключения видимости меню
+            const toggleMenu = () => {
+                mobileMenu.classList.toggle('hidden');
+            };
+
+            // 1. Привязка события клика к кнопке меню
+            if (menuButton) {
+                menuButton.addEventListener('click', toggleMenu);
+            }
+
+            // 2. Скрытие меню при нажатии на любую ссылку в нем
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    // Используем setTimeout для предотвращения проблем с прокруткой
+                    setTimeout(() => {
+                        if (!mobileMenu.classList.contains('hidden')) {
+                             mobileMenu.classList.add('hidden');
+                        }
+                    }, 50); 
+                });
+            });
+        });
+    </script>
 
 </body>
 </html>
